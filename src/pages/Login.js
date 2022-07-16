@@ -6,7 +6,7 @@ import { Box, Button, FormControl, Link, TextField } from "@mui/material";
 
 function Login() {
   const [isDisable, setIsDisable] = useState(true);
-  const [value, setValue] = useState();
+  const [email, password, setEmail, setPassword] = useState();
 
   const handleChange = (event) => {
     const { value } = event.target;
