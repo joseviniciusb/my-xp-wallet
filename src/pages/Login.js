@@ -1,16 +1,21 @@
 import * as React from "react";
+import { useState } from "react";
 import "./Login.css";
 
 import { Box, Button, FormControl, Link, TextField } from "@mui/material";
 
-const validateLogin = () => {
-  console.log("valida ai cara");
-};
-
 function Login() {
+  const [isDisable, setIsDisable] = useState(true);
+  const [value, setValue] = useState();
+
+  const handleChange = (event) => {
+    const { value } = event.target;
+    console.log(value);
+  };
+
   return (
     <>
-      <div className="side-background"> </div>
+      <Box className="side-background"> </Box>
       <FormControl
         sx={{ width: "45ch", my: -8 }}
         className="formLoginContainer"
@@ -26,25 +31,30 @@ function Login() {
         />
         <TextField
           helperText="Insira um email válido"
-          type="email"
           id="standard-basic"
           label="Email"
           variant="standard"
-          onChange={validateLogin}
+          onChange={handleChange}
         />
 
-        <TextField type="password" label="Senha" variant="standard" />
+        <TextField
+          type="password"
+          label="Senha"
+          variant="standard"
+          onChange={handleChange}
+        />
         <Button
           sx={{ my: 5 }}
           onClick={() => {
             alert("clicado");
           }}
           variant="contained"
+          disabled={isDisable}
         >
           Login
         </Button>
         <Link
-        underline="none"
+          underline="none"
           sx={{
             color: "black",
             fontSize: "1.0rem",
