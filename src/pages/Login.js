@@ -1,37 +1,29 @@
 import * as React from "react";
 import "./Login.css";
 
-import { Button, FormControl, TextField } from "@mui/material";
-
-import { Box, ThemeProvider, createTheme } from '@mui/system';
-
-const theme = createTheme({
-  palette: {
-    background: {
-      paper: '#fff',
-    },
-    text: {
-      primary: '#173A5E',
-      secondary: '#46505A',
-    },
-    action: {
-      active: '#001E3C',
-    },
-    success: {
-      dark: '#009688',
-    },
-  },
-});
+import { Box, Button, FormControl, Link, TextField } from "@mui/material";
 
 const validateLogin = () => {
   console.log("valida ai cara");
 };
+
 function Login() {
   return (
     <>
-      <div className="side-background"><span sx={{color: 'primary.main'}}>Xp Investimentos</span></div>
-
-      <FormControl sx={{ width: "45ch" }} className="formLoginContainer">
+      <div className="side-background"> </div>
+      <FormControl
+        sx={{ width: "45ch", my: -8 }}
+        className="formLoginContainer"
+      >
+        <Box
+          component="img"
+          sx={{
+            height: 133,
+            width: 250,
+          }}
+          alt="Xp investiments logo"
+          src="https://conteudos.xpi.com.br/wp-content/uploads/2021/01/Logo-XP-Wide.png"
+        />
         <TextField
           helperText="Insira um email válido"
           type="email"
@@ -43,13 +35,24 @@ function Login() {
 
         <TextField type="password" label="Senha" variant="standard" />
         <Button
-          sx={{ my: 5, borderColor: "black" }}
+          sx={{ my: 5 }}
           onClick={() => {
             alert("clicado");
           }}
+          variant="contained"
         >
           Login
         </Button>
+        <Link
+        underline="none"
+          sx={{
+            color: "black",
+            fontSize: "1.0rem",
+          }}
+        >
+          {" "}
+          Esqueci a senha{" "}
+        </Link>
       </FormControl>
     </>
   );
