@@ -12,16 +12,19 @@ function Login() {
 
   const handleChange = (event) => {
     const { value } = event.target;
-    if (event.target.name === "email") {
+    {
+      value.name === "email" ? setEmail(value) : setPassword(value);
+    }
+    console.log(value);
+    /* if (event.target.name === "email") {
       setEmail(value);
     } else if (event.target.name === "password") {
       setPassword(value);
-    }
+    } */
   };
 
   useEffect(() => {
     const validate = /^\S+@\S+\.\S+$/.test(email);
-    console.log(validate && password.length > 6);
     setIsDisable(!(validate && password.length > 6));
   });
 
