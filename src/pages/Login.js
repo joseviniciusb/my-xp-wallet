@@ -13,11 +13,6 @@ function Login() {
   const handleChange = (event) => {
     const { value, name } = event.target;
      name === "email" ? setEmail(value) : setPassword(value);
-    /* if (event.target.name === "email") {
-      setEmail(value);
-    } else if (event.target.name === "password") {
-      setPassword(value);
-    } */
   };
 
   useEffect(() => {
