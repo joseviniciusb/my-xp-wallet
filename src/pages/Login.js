@@ -11,11 +11,8 @@ function Login() {
   const [emailInfo, setEmailInfo] = useState(false);
 
   const handleChange = (event) => {
-    const { value } = event.target;
-    {
-      value.name === "email" ? setEmail(value) : setPassword(value);
-    }
-    console.log(value);
+    const { value, name } = event.target;
+     name === "email" ? setEmail(value) : setPassword(value);
     /* if (event.target.name === "email") {
       setEmail(value);
     } else if (event.target.name === "password") {
