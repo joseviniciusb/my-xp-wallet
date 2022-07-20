@@ -1,13 +1,14 @@
-import * as React from "react";
-import Header from "../components/Header";
+import "../pages/Wallet.css";
 
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-
+import {
+  Typography,
+  TableRow,
+  TableHead,
+  TableContainer,
+  TableCell,
+  TableBody,
+  Table,
+} from "@mui/material";
 
 function createData(name, quantidade, preço, negociar) {
   return { name, quantidade, preço, negociar };
@@ -21,32 +22,60 @@ const rows = [
   createData("Lalaland", 356, 16.0, "Comprar / Vender"),
 ];
 
-const Wallet = () => {
+const ActionsTable = () => {
   return (
     <>
-      <TableContainer>
-        <Table
-          sx={{ minWidth: 650, maxWidth: 700, my: 10, mx: 35 }}
-          size="medium"
-          aria-label="a dense table"
-        >
+      <TableContainer
+        sx={{
+          backgroundColor: "rgba(0, 0, 0, 0.719)",
+          height: 450,
+          width: 650,
+          overflow: "hidden",
+          borderRadius: 8,
+          margin: "0 auto",
+          my: 10,
+          boxShadow: 3,
+        }}
+      >
+        <Table sx={{ maxWidth: 450, my: 5, mx: 10 }} size="medium">
           <TableHead>
+            <Typography sx={{ color: "white", my: -3, fontWeight: 700 }}>
+              Ações disponíveis
+            </Typography>
             <TableRow>
-              <TableCell>Ações</TableCell>
-              <TableCell>Qtd</TableCell>
-              <TableCell>Valor</TableCell>
-              <TableCell>Negociar</TableCell>
+              <TableCell>
+                <Typography sx={{ color: "white" }}>Ação</Typography>
+              </TableCell>
+              <TableCell>
+                <Typography sx={{ color: "white" }}>Qtd </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography sx={{ color: "white" }}>Valor </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography sx={{ color: "white" }}>Negociar </Typography>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.name} sx={{ my: "100" }}>
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  <Typography sx={{ color: "white" }}> {row.name}</Typography>
                 </TableCell>
-                <TableCell>{row.quantidade}</TableCell>
-                <TableCell>{row.preço}</TableCell>
-                <TableCell>{row.negociar}</TableCell>
+                <TableCell>
+                  <Typography sx={{ color: "white" }}>
+                    {row.quantidade}
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography sx={{ color: "white" }}>{row.preço}</Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography sx={{ color: "white" }}>
+                    {row.negociar}
+                  </Typography>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -55,4 +84,4 @@ const Wallet = () => {
     </>
   );
 };
-export default Wallet;
+export default ActionsTable;
