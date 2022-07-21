@@ -1,7 +1,14 @@
-import React from "react";
+import Header from "../components/Header";
+import ActionsTable from "../components/ActionsTable";
 
-function Wallet() {
-  return <h1>Lalaland</h1>;
-}
-
-export default Wallet
+const Wallet = () => {
+  return (
+    <>
+      <Header />
+      <div className="lalaland">
+        <ActionsTable />
+      </div>
+    </>
+  );
+};
+export default Wallet;

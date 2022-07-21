@@ -2,7 +2,14 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import "./Login.css";
 
-import { Box, Button, FormControl, Link, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  FormControl,
+  Link,
+  TextField,
+  Typography,
+} from "@mui/material";
 
 function Login() {
   const [isDisable, setIsDisable] = useState(true);
@@ -12,7 +19,7 @@ function Login() {
 
   const handleChange = (event) => {
     const { value, name } = event.target;
-     name === "email" ? setEmail(value) : setPassword(value);
+    name === "email" ? setEmail(value) : setPassword(value);
   };
 
   useEffect(() => {
@@ -31,11 +38,24 @@ function Login() {
       <Box
         sx={{
           height: 625,
+          textAlign: 'center'
         }}
         className="side-background"
       >
-        {" "}
+        <Typography
+          variant="h4"
+          sx={{
+            fontFamily: "monospace",
+            fontWeight: 700,
+            color: "white",
+            textDecoration: "none",
+          }}
+        >
+          Há 20 anos transformando o mercado financeiro para melhorar a vida das
+          pessoas.
+        </Typography>
       </Box>
+      <Box className="loginFormsSide"></Box>
       <FormControl
         sx={{ width: "45ch", my: -15 }}
         className="formLoginContainer"
