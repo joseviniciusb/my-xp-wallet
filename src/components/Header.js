@@ -1,11 +1,20 @@
 import * as React from "react";
 
-
-import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Avatar, Button, Tooltip, MenuItem, SwipeableDrawer} from "@mui/material";
-
-import MenuIcon from "@mui/icons-material/Menu";
-import AdbIcon from "@mui/icons-material/Adb";
-
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Avatar,
+  Button,
+  Tooltip,
+  MenuItem,
+  SwipeableDrawer,
+} from "@mui/material";
+import { Link } from "react-router-dom";
 
 const pages = ["Ações", "Carteira", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -13,7 +22,6 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -30,13 +38,9 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
-
   return (
     <>
-      <AppBar
-        position="static"
-        sx={{ backgroundColor: "rgba(14, 13, 13, 0.856)" }}
-      >
+      <Box position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Typography
@@ -45,60 +49,31 @@ const Header = () => {
               component="a"
               href="/"
               sx={{
-                mr: 2,
+                mr: 10,
                 display: { xs: "none", md: "flex" },
                 fontFamily: "monospace",
-                fontWeight: 700,
+                fontWeight: 900,
                 letterSpacing: ".0rem",
-                color: "inherit",
+                color: "white",
                 textDecoration: "none",
-                mr: 10
+                ml: 3,
+                mt: 5,
               }}
             >
               Xp Wallet
             </Typography>
 
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-           
-            </Box>
-            
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href=""
-              sx={{
-                mr: 2,
-                display: { xs: "flex", md: "none" },
-                flexGrow: 1,
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              Xp Wallet
-            </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
-                <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {page}
-                </Button>
+                <Link to={'/' + page}>
+                  <Button
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    {page}
+                  </Button>
+                </Link>
               ))}
             </Box>
 
@@ -133,10 +108,7 @@ const Header = () => {
             </Box>
           </Toolbar>
         </Container>
-      </AppBar>
-
-                  
-
+      </Box>
     </>
   );
 };

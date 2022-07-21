@@ -8,6 +8,7 @@ import {
   TableCell,
   TableBody,
   Table,
+  Box
 } from "@mui/material";
 
 function createData(name, quantidade, preço, negociar) {
@@ -25,19 +26,81 @@ const rows = [
 const ActionsTable = () => {
   return (
     <>
-      <TableContainer
+    <Box sx={{display: 'flex'}}>
+       <TableContainer
         sx={{
-          backgroundColor: "rgba(0, 0, 0, 0.719)",
-          height: 450,
-          width: 650,
+          position: 'relative',
+          backgroundColor: 'black',
+          height: '70vh',
+          width: '45vw',
           overflow: "hidden",
           borderRadius: 8,
           margin: "0 auto",
-          my: 10,
+          my: 3,
+          
           boxShadow: 3,
         }}
       >
-        <Table sx={{ maxWidth: 450, my: 5, mx: 10 }} size="medium">
+        <Table sx={{ maxWidth: 450, mt: 9, mx: 10 }} size="medium">
+          <TableHead>
+            <Typography sx={{ color: "white", my: -3, fontWeight: 700 }}>
+              Suas ações
+            </Typography>
+            <TableRow>
+              <TableCell>
+                <Typography sx={{ color: "white" }}>Ação</Typography>
+              </TableCell>
+              <TableCell>
+                <Typography sx={{ color: "white" }}>Qtd </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography sx={{ color: "white" }}>Valor </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography sx={{ color: "white" }}>Negociar </Typography>
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.name} sx={{ my: "100" }}>
+                <TableCell component="th" scope="row">
+                  <Typography sx={{ color: "white" }}> {row.name}</Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography sx={{ color: "white" }}>
+                    {row.quantidade}
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography sx={{ color: "white" }}>{row.preço}</Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography sx={{ color: "white" }}>
+                    {row.negociar}
+                  </Typography>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        
+      </TableContainer>
+      <TableContainer
+        sx={{
+          position: 'relative',
+          backgroundColor: 'black',
+          height: '70vh',
+          width: '45vw',
+          overflow: "hidden",
+          borderRadius: 8,
+          margin: "0 auto",
+          my: 3,
+          ml: 2,
+          boxShadow: 3,
+        }}
+      >
+        <Table sx={{ maxWidth: 450, mt: 9, mx: 10 }} size="medium">
           <TableHead>
             <Typography sx={{ color: "white", my: -3, fontWeight: 700 }}>
               Ações disponíveis
@@ -80,7 +143,10 @@ const ActionsTable = () => {
             ))}
           </TableBody>
         </Table>
+        
       </TableContainer>
+    </Box>
+     
     </>
   );
 };

@@ -1,4 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html {
-    overflow-y: hidden;
+    overflow: -moz-hidden-unscrollable;
+}
+
+
+/* hide scrollbar but allow scrolling */
+body {
+  
+    overflow: hidden; 
+}
+
+.side-background {
+    background-color: rgba(32, 28, 28, 0.904);
+    float: left;
+    height: 658px;
+    width: 50%;
+}
+
+.formLoginContainer{
+   position: relative;
+   top: 200px;
+   left: 200px;
 }
 
