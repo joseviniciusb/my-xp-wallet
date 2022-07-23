@@ -3,17 +3,11 @@
     padding: 0;
 }
 
-html {
-    overflow: -moz-hidden-unscrollable;
-}
-
-
-/* hide scrollbar but allow scrolling */
-body {
+  body {
   
     overflow: hidden; 
-}
-
+} 
+ 
 .side-background {
     background-color: rgba(32, 28, 28, 0.904);
     float: left;
@@ -22,8 +16,7 @@ body {
 }
 
 .formLoginContainer{
-   position: relative;
-   top: 200px;
+  
    left: 200px;
 }
 

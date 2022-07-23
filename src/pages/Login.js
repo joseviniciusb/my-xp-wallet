@@ -11,11 +11,15 @@ import {
   Typography,
 } from "@mui/material";
 
+import { useHistory } from "react-router-dom";
+
 function Login() {
   const [isDisable, setIsDisable] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailInfo, setEmailInfo] = useState(false);
+
+  const history = useHistory();
 
   const handleChange = (event) => {
     const { value, name } = event.target;
@@ -33,12 +37,17 @@ function Login() {
     console.log("email info:", emailInfo);
   };
 
+  function handleSubmit(event) {
+    console.log("Email:", email, "Password: ", password);
+    history.push('/wallet');
+  }
+
   return (
     <>
       <Box
         sx={{
           height: 625,
-          textAlign: 'center'
+          textAlign: "center",
         }}
         className="side-background"
       >
@@ -57,13 +66,14 @@ function Login() {
       </Box>
       <Box className="loginFormsSide"></Box>
       <FormControl
-        sx={{ width: "45ch", my: -15 }}
-        className="formLoginContainer"
+        sx={{ width: "45ch", my: -15, mt: 13, ml: 18 }}
+        
       >
+        
         <Box
           component="img"
           sx={{
-            height: 133,
+            height: 220,
             width: 250,
           }}
           alt="Xp investiments logo"
@@ -90,11 +100,10 @@ function Login() {
         />
         <Button
           sx={{ my: 5 }}
-          onClick={() => {
-            alert("clicado");
-          }}
           variant="contained"
           disabled={isDisable}
+          type="submit"
+          onClick={handleSubmit}
         >
           Login
         </Button>
@@ -121,6 +130,7 @@ function Login() {
           {" "}
           Ainda não sou cliente{" "}
         </Link>
+        
       </FormControl>
     </>
   );

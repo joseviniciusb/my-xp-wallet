@@ -1,5 +1,3 @@
-import "../pages/Wallet.css";
-
 import {
   Typography,
   TableRow,
@@ -26,22 +24,21 @@ const rows = [
 const ActionsTable = () => {
   return (
     <>
-    <Box sx={{display: 'flex'}}>
+    <Box sx={{display: 'flex', width: '75vw'}}>
        <TableContainer
         sx={{
           position: 'relative',
           backgroundColor: 'black',
           height: '70vh',
-          width: '45vw',
+          width: '35vw',
           overflow: "hidden",
           borderRadius: 8,
           margin: "0 auto",
           my: 3,
-          
           boxShadow: 3,
         }}
       >
-        <Table sx={{ maxWidth: 450, mt: 9, mx: 10 }} size="medium">
+        <Table sx={{ maxWidth: 450, mt: 9, mx: 10, ml: 3 }} size="medium">
           <TableHead>
             <Typography sx={{ color: "white", my: -3, fontWeight: 700 }}>
               Suas ações
@@ -63,7 +60,7 @@ const ActionsTable = () => {
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <TableRow key={row.name} sx={{ my: "100" }}>
+              <TableRow key={row.name}>
                 <TableCell component="th" scope="row">
                   <Typography sx={{ color: "white" }}> {row.name}</Typography>
                 </TableCell>
@@ -91,16 +88,15 @@ const ActionsTable = () => {
           position: 'relative',
           backgroundColor: 'black',
           height: '70vh',
-          width: '45vw',
+          width: '35vw',
           overflow: "hidden",
           borderRadius: 8,
           margin: "0 auto",
           my: 3,
-          ml: 2,
           boxShadow: 3,
         }}
       >
-        <Table sx={{ maxWidth: 450, mt: 9, mx: 10 }} size="medium">
+        <Table sx={{ maxWidth: 450, mt: 9, ml:  5 }} size="medium">
           <TableHead>
             <Typography sx={{ color: "white", my: -3, fontWeight: 700 }}>
               Ações disponíveis
@@ -122,7 +118,7 @@ const ActionsTable = () => {
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <TableRow key={row.name} sx={{ my: "100" }}>
+              <TableRow key={row.name}>
                 <TableCell component="th" scope="row">
                   <Typography sx={{ color: "white" }}> {row.name}</Typography>
                 </TableCell>

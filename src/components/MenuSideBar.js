@@ -1,25 +1,20 @@
-import * as React from "react";
+import React from "react";
 
 import {
-  AppBar,
   Box,
-  Toolbar,
   IconButton,
   Typography,
   Menu,
-  Container,
   Avatar,
   Button,
   Tooltip,
   MenuItem,
-  SwipeableDrawer,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 
-const pages = ["actions", "carteira", "blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+import { Link, useHistory } from "react-router-dom";
 
-const Header = () => {
+const MenuSideBar = () => {
+  const pages = [{name: 'Ações', link: "stocks"}, {name: "Carteira" , link: "wallet"}];
 
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -31,46 +26,33 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
+  const history = useHistory();
+
+  const handleMenu = (page) => {
+    history.push(`/${page}`)
+  }
+
   return (
     <>
-      <Box position="static">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <Typography
-              variant="h4"
-              noWrap
-              component="a"
-              href="/wallet"
-              sx={{
-                mr: 10,
-                fontFamily: "monospace",
-                fontWeight: 900,
-                letterSpacing: ".0rem",
-                color: "white",
-                textDecoration: "none",
-                ml: 3,
-                mt: 5,
-              }}
-            >
-              Xp Wallet
-            </Typography>
-            
+    
+    <Box sx={{ flexGrow: 0 }}>
+        <Tooltip title="Open settings">
           <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
             <Avatar
               alt="Remy Sharp"
               src="http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png"
               sx={{
-                height: "35px",
-                width: "35px",
-                ml: 125
+                height: "150px",
+                width: "150px",
+                top: 15,
+                position: "absolute",
+                left: 30,
               }}
             />
           </IconButton>
-    
-          </Toolbar>
-        </Container>
+        </Tooltip>
         <Menu
-          sx={{ mt: 6, ml: 5 }}
+          sx={{ mt: 20, ml: 22 }}
           id="menu-appbar"
           anchorEl={anchorElUser}
           anchorOrigin={{
@@ -92,7 +74,30 @@ const Header = () => {
           </MenuItem>
         </Menu>
       </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          width: "240px",
+          height: "100vh",
+          my: 14,
+        }}
+      >
+        <Box sx={{ flexGrow: 1, margin: "0 auto", mt: 12, ml: 5, position: 'absolute' }}>
+          {pages.map((page) => (
+         <Button
+           key={page}
+               sx={{ my: 2, color: "white", display: "block", }}
+               onClick={() => handleMenu(page.link)}
+             >
+              {page.name}
+            </Button>
+          ))}
+        </Box>
+      </Box>
+     
     </>
   );
 };
-export default Header;
+
+export default MenuSideBar;

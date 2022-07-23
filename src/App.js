@@ -1,22 +1,24 @@
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+
 import "./App.css";
 import Login from "./pages/Login";
 import Wallet from "./pages/Wallet";
-import Actions from "./pages/Actions";
-
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Stocks from "./pages/Stocks";
 
 function App() {
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/wallet" element={<Wallet />} />
-          <Route path="/actions" element={<Actions />} />
-        </Routes>
-      </Router>
-    </>
+        <Switch>
+          <Route path="/wallet">
+            <Wallet />
+          </Route>
+          <Route path="/stocks">
+            <Stocks />
+          </Route>
+          <Route path="/">
+            <Login />
+          </Route>
+        </Switch>
   );
 }
 
