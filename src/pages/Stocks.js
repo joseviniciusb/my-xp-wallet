@@ -20,9 +20,9 @@ const Stocks = () => {
         <SideBar />
         <Box
           sx={{
-            backgroundColor: "rgba(62, 62, 62, 0.9)",
-            height: "80vh",
-            width: "80vw",
+            backgroundColor: "rgba(62, 62, 62, 0.3)",
+            height: "85vh",
+            width: "85vw",
             ml: 5,
             mr: 5,
             borderRadius: 15,

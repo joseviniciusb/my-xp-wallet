@@ -14,13 +14,14 @@ import {
   MenuItem,
   SwipeableDrawer,
 } from "@mui/material";
+
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { Link } from "react-router-dom";
 
 const pages = ["actions", "carteira", "blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Header = () => {
-
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -35,7 +36,7 @@ const Header = () => {
     <>
       <Box position="static">
         <Container maxWidth="xl">
-          <Toolbar disableGutters>
+          <Toolbar disableGutters sx={{justifyContent: 'space-between'}}>
             <Typography
               variant="h4"
               noWrap
@@ -54,19 +55,10 @@ const Header = () => {
             >
               Xp Wallet
             </Typography>
-            
-          <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-            <Avatar
-              alt="Remy Sharp"
-              src="http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png"
-              sx={{
-                height: "35px",
-                width: "35px",
-                ml: 125
-              }}
-            />
-          </IconButton>
-    
+
+            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+            <LogoutOutlinedIcon color="primary" fontSize="large" />
+            </IconButton>
           </Toolbar>
         </Container>
         <Menu

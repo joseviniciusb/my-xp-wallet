@@ -2,10 +2,9 @@ import Header from "../components/Header";
 import ActionsTable from "../components/ActionsTable";
 import SideBar from "../components/SideBar";
 
-import { Box, } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 
 const Wallet = () => {
-  
   return (
     <>
       <Box
@@ -23,9 +22,9 @@ const Wallet = () => {
           <SideBar />
           <Box
             sx={{
-              backgroundColor: "rgba(62, 62, 62, 0.9)",
-              height: "80vh",
-              width: "80vw",
+              backgroundColor: "rgba(62, 62, 62, 0.3)",
+              height: "85vh",
+              width: "85vw",
               ml: 5,
               mr: 5,
               borderRadius: 15,
@@ -33,7 +32,6 @@ const Wallet = () => {
               display: "flex",
             }}
           >
-          
           </Box>
         </Box>
       </Box>
