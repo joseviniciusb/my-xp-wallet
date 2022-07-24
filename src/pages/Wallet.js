@@ -23,8 +23,8 @@ const Wallet = () => {
           <Box
             sx={{
               backgroundColor: "rgba(62, 62, 62, 0.3)",
-              height: "85vh",
-              width: "85vw",
+              height: "480px",
+              width: "1000px",
               ml: 5,
               mr: 5,
               borderRadius: 15,
