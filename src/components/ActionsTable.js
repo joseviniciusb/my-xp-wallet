@@ -4,7 +4,7 @@ const ActionsTable = ({ renderVender, onSell, onBuy, data }) => {
       <tr className="rowItem">
         <th className="acao"> {item.name}</th>
         <th className="quantidade">{item.quantidade}</th>
-        <th className="preco">{item.preço}</th>
+        <th className="preco">{`R$ ${item.preço.toFixed(2)}`}</th>
         <th className="negociar">
           <div className="buttonsContainer">
             <button className="buttonNegociar" onClick={() => onBuy(item)}>
@@ -32,7 +32,7 @@ const ActionsTable = ({ renderVender, onSell, onBuy, data }) => {
         <h3 className="tableTittle">Ações disponíveis</h3>
       )}
       <tr className="rowHeader">
-        <th className="tableHeader">Ação</th>
+        <th className="tableHeader" >Ação</th>
         <th className="tableHeader">Quantidade</th>
         <th className="tableHeader">Preço</th>
         <th className="tableHeader">Negociar</th>

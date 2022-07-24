@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Box } from "@mui/material";
+import { Box, Button, TextField, InputAdornment } from "@mui/material";
 
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
@@ -48,21 +48,58 @@ export default function Checkout() {
             borderRadius: 15,
             p: 2,
             display: "flex",
+            flexDirection: "column",
           }}
         >
           <table className="table">
-            <caption className="tittle">Comprar / Vender Ação: </caption>
+            <h3 className="tableTittle">Comprar / Vender Ação: </h3>
             <tr className="rowHeader">
               <th className="checkoutTableHeader">Ação</th>
               <th className="checkoutTableHeader">Quantidade</th>
               <th className="checkoutTableHeader">Preço</th>
             </tr>
+            <hr></hr>
             <tr className="rowHeader">
               <th className="checkoutTableHeader">{currentItem?.name}</th>
               <th className="checkoutTableHeader">{currentItem?.quantidade}</th>
-              <th className="checkoutTableHeader">{currentItem?.preço}</th>
+              <th className="checkoutTableHeader">
+                {currentItem?.preço}
+              </th>
             </tr>
           </table>
+          <form className="buttonsCheckoutContainer">
+            <div className="BuyButtonContainer">
+              <Button variant="contained">Comprar</Button>
+              <TextField
+                placeholder="R$"
+                sx={{ mt: 3, input: { color: "white" } }}
+                className="textField"
+                InputLabelProps={{
+                  style: { color: "white" },
+                }}
+                label="Informe o valor"
+                type="number"
+                variant="standard"
+              ></TextField>
+            </div>
+            <div className="BuyButtonContainer">
+              <Button variant="contained" color="success">
+                Vender
+              </Button>
+              <TextField
+                className="textFieldCheckout"
+                placeholder="R$"
+                sx={{ mt: 3, input: { color: "white" } }}
+                InputLabelProps={{
+                  style: { color: "white" },
+                }}
+                variant="standard"
+                label="Informe o valor"
+                type="number"
+                color="success"
+              ></TextField>
+            </div>
+          </form>
         </Box>
       </Box>
     </Box>

@@ -41,7 +41,7 @@ const Header = () => {
               variant="h4"
               noWrap
               component="a"
-              href="/wallet"
+              href="/stocks"
               sx={{
                 mr: 10,
                 fontFamily: "monospace",

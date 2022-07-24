@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import "./App.css";
 import Login from "./pages/Login";
-import Wallet from "./pages/Wallet";
+import DepositWithdraw from "./pages/DepositWithdraw";
 import Stocks from "./pages/Stocks";
 import Checkout from "./pages/Checkout";
 
@@ -11,8 +11,8 @@ function App() {
   return (
     <>
      <Switch>
-      <Route path="/wallet">
-        <Wallet />
+      <Route path="/depositWithdraw">
+        <DepositWithdraw />
       </Route>
       <Route path="/stocks">
         <Stocks />

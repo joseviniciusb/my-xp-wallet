@@ -29,7 +29,7 @@ function Login() {
   useEffect(() => {
     const validate = /^\S+@\S+\.\S+$/.test(email);
     setIsDisable(!(validate && password.length > 6));
-  });
+  }, [email, password.length]);
 
   const validateEmailInfo = () => {
     const validate = /^\S+@\S+\.\S+$/.test(email);
@@ -39,7 +39,7 @@ function Login() {
 
   function handleSubmit(event) {
     console.log("Email:", email, "Password: ", password);
-    history.push('/wallet');
+    history.push("/depositWithdraw");
   }
 
   return (
@@ -48,6 +48,7 @@ function Login() {
         sx={{
           height: 625,
           textAlign: "center",
+          display: "flex",
         }}
         className="side-background"
       >
@@ -55,21 +56,16 @@ function Login() {
           variant="h4"
           sx={{
             fontFamily: "monospace",
-            fontWeight: 700,
+            fontWeight: 800,
             color: "white",
-            textDecoration: "none",
+            mt: 20,
           }}
         >
-          Há 20 anos transformando o mercado financeiro para melhorar a vida das
-          pessoas.
+          Há 20 anos transformando o mercado financeiro para melhorar a vida das pessoas
         </Typography>
       </Box>
       <Box className="loginFormsSide"></Box>
-      <FormControl
-        sx={{ width: "45ch", my: -15, mt: 13, ml: 18 }}
-        
-      >
-        
+      <FormControl sx={{ width: "45ch", my: -15, mt: 13, ml: 18 }}>
         <Box
           component="img"
           sx={{
@@ -130,7 +126,6 @@ function Login() {
           {" "}
           Ainda não sou cliente{" "}
         </Link>
-        
       </FormControl>
     </>
   );
