@@ -1,4 +1,110 @@
-html {
-    overflow-y: hidden;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.textFieldCheckout {
+  color: white;
+}
+
+body {
+  overflow: hidden;
+}
+
+.side-background {
+  background-color: rgba(32, 28, 28, 0.904);
+  float: left;
+  height: 658px;
+  width: 50%;
+}
+
+.formLoginContainer {
+  left: 200px;
+}
+
+.table {
+  width: 100%;
+  color: white;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.table tr {
+  width: 100%;
+  height: 55px;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  border-spacing: 5px;
+  justify-content: center;
+}
+
+.buttonsContainer {
+  display: flex;
+}
+
+.buttonNegociar {
+  background-color: #0288d1;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 8px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.tableTittle {
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+hr {
+  margin-bottom: 15px;
+}
+
+.buttonsCheckoutContainer {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.buttonsCheckoutContainer button {
+  color: white;
+  margin-top: 25px;
+  width: 350px;
+  margin-right: 10px;
+}
+
+.BuyButtonContainer {
+  display: flex;
+}
+
+.textField {
+  display: flex;
+  margin-top: 50px;
+}
+
+.saldoContainer {
+  color: white;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 350px;
+  height: 350px;
+  text-align: center;
+}
+
+.buttonsWithdrawDeposit {
+  margin: 5px;
+}
+
+.acao {
+  color: "blue";
+}

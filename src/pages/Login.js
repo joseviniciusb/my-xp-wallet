@@ -11,11 +11,15 @@ import {
   Typography,
 } from "@mui/material";
 
+import { useHistory } from "react-router-dom";
+
 function Login() {
   const [isDisable, setIsDisable] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailInfo, setEmailInfo] = useState(false);
+
+  const history = useHistory();
 
   const handleChange = (event) => {
     const { value, name } = event.target;
@@ -25,7 +29,7 @@ function Login() {
   useEffect(() => {
     const validate = /^\S+@\S+\.\S+$/.test(email);
     setIsDisable(!(validate && password.length > 6));
-  });
+  }, [email, password.length]);
 
   const validateEmailInfo = () => {
     const validate = /^\S+@\S+\.\S+$/.test(email);
@@ -33,12 +37,18 @@ function Login() {
     console.log("email info:", emailInfo);
   };
 
+  function handleSubmit(event) {
+    console.log("Email:", email, "Password: ", password);
+    history.push("/depositWithdraw");
+  }
+
   return (
     <>
       <Box
         sx={{
           height: 625,
-          textAlign: 'center'
+          textAlign: "center",
+          display: "flex",
         }}
         className="side-background"
       >
@@ -46,24 +56,20 @@ function Login() {
           variant="h4"
           sx={{
             fontFamily: "monospace",
-            fontWeight: 700,
+            fontWeight: 800,
             color: "white",
-            textDecoration: "none",
+            mt: 20,
           }}
         >
-          Há 20 anos transformando o mercado financeiro para melhorar a vida das
-          pessoas.
+          Há 20 anos transformando o mercado financeiro para melhorar a vida das pessoas
         </Typography>
       </Box>
       <Box className="loginFormsSide"></Box>
-      <FormControl
-        sx={{ width: "45ch", my: -15 }}
-        className="formLoginContainer"
-      >
+      <FormControl sx={{ width: "45ch", my: -15, mt: 13, ml: 18 }}>
         <Box
           component="img"
           sx={{
-            height: 133,
+            height: 220,
             width: 250,
           }}
           alt="Xp investiments logo"
@@ -90,11 +96,10 @@ function Login() {
         />
         <Button
           sx={{ my: 5 }}
-          onClick={() => {
-            alert("clicado");
-          }}
           variant="contained"
           disabled={isDisable}
+          type="submit"
+          onClick={handleSubmit}
         >
           Login
         </Button>
