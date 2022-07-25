@@ -20,7 +20,7 @@ const Stocks = () => {
   ];
 
   const adiquiridas = [
-    { name: "BBDC4", quantidade: 159, preço: 6.0 },
+    { name: "BBDC5", quantidade: 159, preço: 6.0 },
     { name: "BRAP4", quantidade: 237, preço: 9.0 },
     { name: "BTC", quantidade: 201, preço: 3.8 },
   ];

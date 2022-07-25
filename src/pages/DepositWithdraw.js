@@ -12,17 +12,10 @@ const DepositWithdraw = () => {
   const handleChange = (event) => {
     let { value } = event.target;
     setInputValue(value);
+    console.log('value', inputValue)
   };
 
-  const handleSum = () => {
-    setSaldo(parseInt(inputValue) + parseInt(saldo));
-    console.log("somou:", saldo);
-  };
 
-  const handleSub = () => {
-    setSaldo(parseFloat(inputValue) - parseFloat(saldo));
-    console.log("subtraiu", saldo);
-  };
 
   return (
     <Box
@@ -55,7 +48,7 @@ const DepositWithdraw = () => {
             <h2>{`R$ ${saldo}`}</h2>
             <div className="buttonsWithdrawDeposit">
               <Button
-                onClick={() => handleSum()}
+                onClick={(target) => setSaldo(parseInt(inputValue) + parseInt(saldo))}
                 sx={{ mr: 2, mt: 3 }}
                 variant="contained"
                 name="somar"
@@ -63,7 +56,7 @@ const DepositWithdraw = () => {
                 Depositar
               </Button>
               <Button
-                onClick={() => handleSub()}
+                onClick={(target) => setSaldo(parseInt(inputValue) - parseInt(saldo))}
                 sx={{ mr: 2, mt: 3 }}
                 variant="contained"
                 name="subtrair"
