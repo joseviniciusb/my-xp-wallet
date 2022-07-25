@@ -6,14 +6,23 @@ import SideBar from "../components/SideBar";
 import { Box, Button, TextField } from "@mui/material";
 
 const DepositWithdraw = () => {
-  const [saldo, setSaldo] = useState(500);
+  const [saldo, setSaldo] = useState(100);
   const [inputValue, setInputValue] = useState();
 
   const handleChange = (event) => {
-    const { value } = event.target;
+    let { value } = event.target;
+    setInputValue(value);
   };
 
+  const handleSum = () => {
+    setSaldo(parseInt(inputValue) + parseInt(saldo));
+    console.log("somou:", saldo);
+  };
 
+  const handleSub = () => {
+    setSaldo(parseFloat(inputValue) - parseFloat(saldo));
+    console.log("subtraiu", saldo);
+  };
 
   return (
     <Box
@@ -43,15 +52,29 @@ const DepositWithdraw = () => {
         >
           <Box className="saldoContainer">
             <h3>Saldo disponivel:</h3>
-            <h2>{`R$ ${saldo.toFixed(2)}`}</h2>
-            {console.log("saldo:", saldo)}
+            <h2>{`R$ ${saldo}`}</h2>
             <div className="buttonsWithdrawDeposit">
-              <Button variant="contained">Depositar</Button>
-              <Button variant="contained">Sacar</Button>
+              <Button
+                onClick={() => handleSum()}
+                sx={{ mr: 2, mt: 3 }}
+                variant="contained"
+                name="somar"
+              >
+                Depositar
+              </Button>
+              <Button
+                onClick={() => handleSub()}
+                sx={{ mr: 2, mt: 3 }}
+                variant="contained"
+                name="subtrair"
+              >
+                Sacar
+              </Button>
             </div>
             <TextField
               variant="standard"
               label="Insira um valor"
+              type="number"
               onChange={handleChange}
               sx={{
                 mt: 3,
